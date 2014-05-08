@@ -10,7 +10,7 @@ Make readlink work with shortcuts
 
 # DESCRIPTION
 
-This module overloads the perl built-in function [perlfunc#readlink](https://metacpan.org/pod/readlink)
+This module overloads the perl built-in function [readlink](https://metacpan.org/pod/perlfunc#readlink)
 so that it will treat shortcuts like pseudo symlinks on `cygwin` and `MSWin32`.
 This module doesn't do anything on any other platform, so you are free to make
 this a dependency, even if your module or script is going to run on non-Windows
