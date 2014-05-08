@@ -28,6 +28,12 @@ if either symbolic links are implemented or if shortcuts are.  If not, raises an
 exception.  If there is a system error, returns the undefined value and sets 
 `$!` (errno). If `EXPR` is omitted, uses `$_`.
 
+# SEE ALSO
+
+- [Win32::Shortcut](https://metacpan.org/pod/Win32::Shortcut)
+- [Win32::Symlink](https://metacpan.org/pod/Win32::Symlink)
+- [Win32::Hardlink](https://metacpan.org/pod/Win32::Hardlink)
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>

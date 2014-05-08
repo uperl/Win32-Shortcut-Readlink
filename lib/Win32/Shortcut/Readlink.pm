@@ -80,3 +80,17 @@ sub readlink (_)
 }
 
 1;
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Win32::Shortcut>
+
+=item L<Win32::Symlink>
+
+=item L<Win32::Hardlink>
+
+=back
+
+=cut
