@@ -47,15 +47,11 @@ C<$!> (errno). If C<EXPR> is omitted, uses C<$_>.
 
 sub readlink (_)
 {
-  unless(defined $_[0])
-  {
-    # TODO: is it possible to turn this off if
-    # warnings are turned off?
-    carp "Use of uninitalized value in readlink";
-    return;
-  }
-  
-  return readlink($_[0]) unless _is_windows;
+  # TODO: is it possible to turn this off if
+  # warnings are turned off?
+  carp "Use of uninitalized value in readlink" unless defined $_[0];
+
+  return do { no warnings; readlink($_[0]) } unless _is_windows;
   
   if(defined $_[0] && $_[0] =~ /\.lnk$/ && -r $_[0])
   {
@@ -67,7 +63,7 @@ sub readlink (_)
     return $target unless $@;
   }
 
-  return readlink($_[0]) if _is_cygwin;
+  return do { no warnings; readlink($_[0]) } if _is_cygwin;
 
   # else is MSWin32
   # emulate unix failues
