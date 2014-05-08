@@ -20,8 +20,8 @@ use if _is_windows, 'Win32::Shortcut';
 
 =head1 DESCRIPTION
 
-This module overloads the perl buildint function L<perlfunc#readlink|readlink>
-so that it will treat shortcuts like psudo symlinks on C<cygwin> and C<MSWin32>.
+This module overloads the perl built-in function L<perlfunc#readlink|readlink>
+so that it will treat shortcuts like pseudo symlinks on C<cygwin> and C<MSWin32>.
 This module doesn't do anything on any other platform, so you are free to make
 this a dependency, even if your module or script is going to run on non-Windows
 platforms.
@@ -41,7 +41,7 @@ our @EXPORT    = @EXPORT_OK;
 Returns the value of a symbolic link or the target of the shortcut on Windows,
 if either symbolic links are implemented or if shortcuts are.  If not, raises an 
 exception.  If there is a system error, returns the undefined value and sets 
-$! (errno). If EXPR is omitted, uses $_.
+C<$!> (errno). If C<EXPR> is omitted, uses C<$_>.
 
 =cut
 

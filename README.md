@@ -10,8 +10,8 @@ Make readlink work with shortcuts
 
 # DESCRIPTION
 
-This module overloads the perl buildint function [perlfunc#readlink](https://metacpan.org/pod/readlink)
-so that it will treat shortcuts like psudo symlinks on `cygwin` and `MSWin32`.
+This module overloads the perl built-in function [perlfunc#readlink](https://metacpan.org/pod/readlink)
+so that it will treat shortcuts like pseudo symlinks on `cygwin` and `MSWin32`.
 This module doesn't do anything on any other platform, so you are free to make
 this a dependency, even if your module or script is going to run on non-Windows
 platforms.
@@ -26,7 +26,7 @@ platforms.
 Returns the value of a symbolic link or the target of the shortcut on Windows,
 if either symbolic links are implemented or if shortcuts are.  If not, raises an 
 exception.  If there is a system error, returns the undefined value and sets 
-$! (errno). If EXPR is omitted, uses $\_.
+`$!` (errno). If `EXPR` is omitted, uses `$_`.
 
 # AUTHOR
 
