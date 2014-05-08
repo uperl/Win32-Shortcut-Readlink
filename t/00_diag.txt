@@ -1,0 +1,9 @@
+Carp
+Exporter
+File::Spec
+File::Temp
+Module::Build
+Test::More
+Win32::Shortcut
+constant
+if
