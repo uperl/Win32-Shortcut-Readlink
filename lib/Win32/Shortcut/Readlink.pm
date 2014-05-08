@@ -105,6 +105,8 @@ undef to readlink on Perl 5.14 or earlier.
 
 =item L<Win32::Shortcut>
 
+=item L<Win32::Unicode::Shortcut>
+
 =item L<Win32::Symlink>
 
 =item L<Win32::Hardlink>

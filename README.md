@@ -44,6 +44,7 @@ undef to readlink on Perl 5.14 or earlier.
 # SEE ALSO
 
 - [Win32::Shortcut](https://metacpan.org/pod/Win32::Shortcut)
+- [Win32::Unicode::Shortcut](https://metacpan.org/pod/Win32::Unicode::Shortcut)
 - [Win32::Symlink](https://metacpan.org/pod/Win32::Symlink)
 - [Win32::Hardlink](https://metacpan.org/pod/Win32::Hardlink)
 
