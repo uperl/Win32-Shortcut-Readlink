@@ -8,6 +8,8 @@
 #include <shlguid.h>
 #include <objbase.h>
 
+#else
+#include <stdlib.h>
 #endif
 
 #include <win32sr.h>
