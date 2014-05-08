@@ -2,12 +2,12 @@ package Win32::Shortcut::Readlink;
 
 use strict;
 use warnings;
-use Win32::Shortcut;
 use base qw( Exporter );
 use Carp qw( carp );
 use constant _is_cygwin  => $^O eq 'cygwin';
 use constant _is_mswin32 => $^O eq 'MSWin32';
 use constant _is_windows => _is_cygwin || _is_mswin32;
+use if _is_windows, 'Win32::Shortcut';
 
 # ABSTRACT: Make readlink work with shortcuts
 # VERSION
