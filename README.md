@@ -28,6 +28,10 @@ if either symbolic links are implemented or if shortcuts are.  If not, raises an
 exception.  If there is a system error, returns the undefined value and sets 
 `$!` (errno). If `EXPR` is omitted, uses `$_`.
 
+# CAVEATS
+
+Does not handle Unicode.  Patches welcome.
+
 # SEE ALSO
 
 - [Win32::Shortcut](https://metacpan.org/pod/Win32::Shortcut)

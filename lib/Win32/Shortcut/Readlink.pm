@@ -7,10 +7,16 @@ use Carp qw( carp );
 use constant _is_cygwin  => $^O eq 'cygwin';
 use constant _is_mswin32 => $^O eq 'MSWin32';
 use constant _is_windows => _is_cygwin || _is_mswin32;
-use if _is_windows, 'Win32::Shortcut';
+
+BEGIN {
 
 # ABSTRACT: Make readlink work with shortcuts
 # VERSION
+
+  require XSLoader;
+  XSLoader::load('Win32::Shortcut::Readlink', $VERSION);
+
+}
 
 =head1 SYNOPSIS
 
@@ -55,12 +61,8 @@ sub readlink (_)
   
   if(defined $_[0] && $_[0] =~ /\.lnk$/ && -r $_[0])
   {
-    my $target = eval {
-      my $lnk = Win32::Shortcut->new;
-      $lnk->Load(_is_cygwin ? Cygwin::posix_to_win_path($_[0]) : $_[0]);
-      $lnk->{Path};
-    };
-    return $target unless $@;
+    my $target = _win32_resolve(_is_cygwin ? Cygwin::posix_to_win_path($_[0]) : $_[0]);
+    return $target if defined $target;
   }
 
   return do { no warnings; readlink($_[0]) } if _is_cygwin;
@@ -80,6 +82,10 @@ sub readlink (_)
 }
 
 1;
+
+=head1 CAVEATS
+
+Does not handle Unicode.  Patches welcome.
 
 =head1 SEE ALSO
 

@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use if $^O !~ /^(cygwin|MSWin32)$/, 'Test::More', skip_all => 'test only for MSWin32 or cygwin';
-use if ! eval { require Win32::Shortcut }, 'Test::More', skip_all => 'test requires Win32::Shortcut';
+use if ! eval { require Win32::Shortcut; 1 }, 'Test::More', skip_all => 'test requires Win32::Shortcut';
 use Test::More tests => 3;
 use File::Temp qw( tempdir );
 use Win32::Shortcut::Readlink;
