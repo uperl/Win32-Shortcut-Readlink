@@ -32,6 +32,11 @@ exception.  If there is a system error, returns the undefined value and sets
 
 Does not handle Unicode.  Patches welcome.
 
+Before Perl 5.16, `CORE` functions could not be aliased, and you will see warnings
+on Perl 5.14 and earlier if you pass undef in as the argument to readlink, even if
+you have warnings turned off.  The work around is to make sure that you never pass
+undef to readlink on Perl 5.14 or earlier.
+
 # SEE ALSO
 
 - [Win32::Shortcut](https://metacpan.org/pod/Win32::Shortcut)

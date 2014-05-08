@@ -54,9 +54,12 @@ C<$!> (errno). If C<EXPR> is omitted, uses C<$_>.
 
 =cut
 
+sub _real_readlink (_);
+*_real_readlink = eval qq{ use 5.16.0; 1 } ? \&CORE::readlink : sub { CORE::readlink($_[0]) };
+
 sub readlink (_)
 {
-  goto &CORE::readlink unless _is_windows;
+  goto &_real_readlink unless _is_windows;
   
   if(defined $_[0] && $_[0] =~ /\.lnk$/ && -r $_[0])
   {
@@ -64,7 +67,7 @@ sub readlink (_)
     return $target if defined $target;
   }
 
-  &goto &CORE::readlink if _is_cygwin;
+  &goto &_real_readlink if _is_cygwin;
 
   # else is MSWin32
   # emulate unix failues
@@ -85,6 +88,11 @@ sub readlink (_)
 =head1 CAVEATS
 
 Does not handle Unicode.  Patches welcome.
+
+Before Perl 5.16, C<CORE> functions could not be aliased, and you will see warnings
+on Perl 5.14 and earlier if you pass undef in as the argument to readlink, even if
+you have warnings turned off.  The work around is to make sure that you never pass
+undef to readlink on Perl 5.14 or earlier.
 
 =head1 SEE ALSO
 
