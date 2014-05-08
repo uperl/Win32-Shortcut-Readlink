@@ -13,8 +13,11 @@ BEGIN {
 # ABSTRACT: Make readlink work with shortcuts
 # VERSION
 
-  require XSLoader;
-  XSLoader::load('Win32::Shortcut::Readlink', $VERSION);
+  if($^O =~ /^(cygwin|MSWin32)$/)
+  {
+    require XSLoader;
+    XSLoader::load('Win32::Shortcut::Readlink', $VERSION);
+  }
 
 }
 
