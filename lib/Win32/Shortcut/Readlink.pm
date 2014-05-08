@@ -2,6 +2,7 @@ package Win32::Shortcut::Readlink;
 
 use strict;
 use warnings;
+use v5.10;
 use base qw( Exporter );
 use Carp qw( carp );
 use constant _is_cygwin  => $^O eq 'cygwin';
