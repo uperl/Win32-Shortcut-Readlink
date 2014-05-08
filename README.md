@@ -16,7 +16,7 @@ This module doesn't do anything on any other platform, so you are free to make
 this a dependency, even if your module or script is going to run on non-Windows
 platforms.
 
-This module adjusted the behavior of readlink ONLY in the calling module, so
+This module adjusts the behavior of readlink ONLY in the calling module, so
 you shouldn't have to worry about breaking other modules that depend on the
 more traditional behavior.
 
