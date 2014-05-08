@@ -35,6 +35,10 @@ This module doesn't do anything on any other platform, so you are free to make
 this a dependency, even if your module or script is going to run on non-Windows
 platforms.
 
+This module adjusted the behavior of readlink ONLY in the calling module, so
+you shouldn't have to worry about breaking other modules that depend on the
+more traditional behavior.
+
 =cut
 
 our @EXPORT_OK = qw( readlink );
@@ -67,7 +71,7 @@ sub readlink (_)
     return $target if defined $target;
   }
 
-  &goto &_real_readlink if _is_cygwin;
+  goto &_real_readlink if _is_cygwin;
 
   # else is MSWin32
   # emulate unix failues
