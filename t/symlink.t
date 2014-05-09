@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use if $^O eq 'MSWin32', 'Test::More', skip_all => 'tests skipped on MSWin32';
-use Test::More tests => 10;
+use Test::More tests => 11;
 use Win32::Shortcut::Readlink;
 use File::Temp qw( tempdir );
 use File::Spec;
@@ -31,6 +31,9 @@ do {
 };
 
 is readlink $link_name, $target_name, "readlink \$link_name = $target_name";
+note "errno = $!";
+
+is do { no warnings; $_ = $link_name; readlink undef }, undef, "readlink undef = undef (with $_ defined)";
 note "errno = $!";
 
 is do { $_ = $link_name; readlink $link_name }, $target_name, "readlink = $target_name";
