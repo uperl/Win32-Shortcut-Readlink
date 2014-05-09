@@ -15,8 +15,8 @@ do{
   $lnk1->Close;
 };
 
-is readlink("$dir/link.lnk"), "C:\\Foo\\Bar.exe", "$dir/link.lnk => C:\\Foo\\Bar.exe";
-is readlink("$dir/foo.txt"), undef, "readlink $dir/foo.txt => undef";
+is readlink "$dir/link.lnk", "C:\\Foo\\Bar.exe", "$dir/link.lnk => C:\\Foo\\Bar.exe";
+is readlink "$dir/foo.txt", undef, "readlink $dir/foo.txt => undef";
 note $!;
-is readlink("$dir"), undef, "readlink $dir => undef";
+is readlink "$dir", undef, "readlink $dir => undef";
 note $!;

@@ -60,7 +60,7 @@ C<$!> (errno). If C<EXPR> is omitted, uses C<$_>.
 =cut
 
 sub _real_readlink (_);
-*_real_readlink = eval qq{ use 5.16.0; 1 } ? \&CORE::readlink : sub { CORE::readlink($_[0]) };
+*_real_readlink = eval qq{ use 5.16.0; 1 } ? \&CORE::readlink : sub (_) { CORE::readlink($_[0]) };
 
 sub readlink (_)
 {
