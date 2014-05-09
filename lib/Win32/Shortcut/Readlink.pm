@@ -60,6 +60,7 @@ C<$!> (errno). If C<EXPR> is omitted, uses C<$_>.
 =cut
 
 sub _real_readlink (_);
+# TODO: only warn in 5.14 or earlier if warnings on in caller
 *_real_readlink = eval qq{ use 5.16.0; 1 } ? \&CORE::readlink : sub (_) { CORE::readlink($_[0]) };
 
 sub readlink (_)
@@ -76,7 +77,13 @@ sub readlink (_)
 
   # else is MSWin32
   # emulate unix failues
-  if(-e $_[0])
+  if(!defined $_[0])
+  {
+    # TODO: only warn if warnings on in caller
+    carp "Use of uninitialized value in readlink";
+    $! = 22;
+  }
+  elsif(-e $_[0])
   {
     $! = 22; # Invalid argument
   }
