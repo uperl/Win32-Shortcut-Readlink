@@ -41,6 +41,11 @@ on Perl 5.14 and earlier if you pass undef in as the argument to readlink, even 
 you have warnings turned off.  The work around is to make sure that you never pass
 undef to readlink on Perl 5.14 or earlier.
 
+Perl 5.8.x is somewhat supported.  The use of implicit `$_` with readlink in
+Perl 5.8.x is not supported and will throw an exception.  It is recommended that
+you either upgrade to at least Perl 5.10 or pass an explicit argument of readlink
+when using this module.
+
 # SEE ALSO
 
 - [Win32::Shortcut](https://metacpan.org/pod/Win32::Shortcut)

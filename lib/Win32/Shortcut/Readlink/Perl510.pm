@@ -3,7 +3,6 @@ package
 
 use strict;
 use warnings;
-use v5.10;
 use Carp qw( carp );
 use constant _is_cygwin  => $^O eq 'cygwin';
 use constant _is_mswin32 => $^O eq 'MSWin32';

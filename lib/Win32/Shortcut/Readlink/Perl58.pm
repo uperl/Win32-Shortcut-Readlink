@@ -3,20 +3,20 @@ package
 
 use strict;
 use warnings;
-use Carp qw( carp );
+use Carp qw( carp croak );
 use constant _is_cygwin  => $^O eq 'cygwin';
 use constant _is_mswin32 => $^O eq 'MSWin32';
 use constant _is_windows => _is_cygwin || _is_mswin32;
 
 sub readlink (;$)
 {
-  print "\n\n\nHERE\nHERE\nHERE\n\n\n";
   unless(_is_windows)
   {
     if(@_ > 0)
     { return CORE::readlink($_[0]) }
     else
-    { return CORE::readlink($_) }
+    # If you need this feature, then please either upgrade to 5.10 or downgrade to 5.6
+    { croak "implicit \$_ and Win32::Shortcut::Readlink are not interoperable on Perl 5.8.x" }
   }
 
   my $arg = @_ > 0 ? $_[0] : $_;
@@ -32,7 +32,8 @@ sub readlink (;$)
     if(@_ > 0)
     { return CORE::readlink($_[0]) }
     else
-    { return CORE::readlink($_) }
+    # If you need this feature, then please either upgrade to 5.10 or downgrade to 5.6
+    { croak "implicit \$_ and Win32::Shortcut::Readlink are not interoperable on Perl 5.8.x" }
   }
 
   # else is MSWin32

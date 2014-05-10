@@ -1,5 +1,6 @@
 package Win32::Shortcut::Readlink;
 
+require 5.008000;
 use strict;
 use warnings;
 use base qw( Exporter );
@@ -58,6 +59,10 @@ if(eval { require 5.010000 })
 {
   require Win32::Shortcut::Readlink::Perl510;
 }
+elsif(eval { require 5.008000 })
+{
+  require Win32::Shortcut::Readlink::Perl58;
+}
 else
 {
   require Win32::Shortcut::Readlink::Perl56;
@@ -73,6 +78,11 @@ Before Perl 5.16, C<CORE> functions could not be aliased, and you will see warni
 on Perl 5.14 and earlier if you pass undef in as the argument to readlink, even if
 you have warnings turned off.  The work around is to make sure that you never pass
 undef to readlink on Perl 5.14 or earlier.
+
+Perl 5.8.x is somewhat supported.  The use of implicit C<$_> with readlink in
+Perl 5.8.x is not supported and will throw an exception.  It is recommended that
+you either upgrade to at least Perl 5.10 or pass an explicit argument of readlink
+when using this module.
 
 =head1 SEE ALSO
 
