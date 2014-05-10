@@ -47,7 +47,7 @@ const char *resolve(const char *link_name)
     }
     ilink->Release();
   }
-  return target_path;
+  return answer;
 }
 
 #else
