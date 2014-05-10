@@ -65,6 +65,12 @@ elsif(eval { require 5.008000 })
 }
 else
 {
+  # TODO: doesn't currently work.  Figure out
+  # if this is a limitation of Perl 5.6 or if
+  # I am just doing it wrong.  Fix or remove
+  # if appropriate.  BTW- dist requires 5.8
+  # so shouldn't even get in here if installed
+  # without hacking.
   require Win32::Shortcut::Readlink::Perl56;
 }
 
