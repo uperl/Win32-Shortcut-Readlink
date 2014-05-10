@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use if $^O eq 'MSWin32', 'Test::More', skip_all => 'tests skipped on MSWin32';
-use Test::More tests => 11;
+use Test::More tests => 15;
 use Win32::Shortcut::Readlink;
 use File::Temp qw( tempdir );
 use File::Spec;
@@ -17,6 +17,9 @@ note "errno = $!";
 is do { no warnings; undef $_; readlink }, undef, 'readlink = undef (when $_ == undef)';
 note "errno = $!";
 
+is readlink($link_name), undef, 'readlink $link_name = undef (where $link_name is a non existant file)';
+note "errno = $!";
+
 is readlink $link_name, undef, 'readlink $link_name = undef (where $link_name is a non existant file)';
 note "errno = $!";
 
@@ -30,6 +33,9 @@ do {
   symlink $target_name, $link_name;
 };
 
+is readlink($link_name), $target_name, "readlink \$link_name = $target_name";
+note "errno = $!";
+
 is readlink $link_name, $target_name, "readlink \$link_name = $target_name";
 note "errno = $!";
 
@@ -39,10 +45,16 @@ note "errno = $!";
 is do { $_ = $link_name; readlink $link_name }, $target_name, "readlink = $target_name";
 note "errno = $!";
 
+is readlink($full_target_name), undef, 'readlink $full_target_name = undef';
+note "errno = $!";
+
 is readlink $full_target_name, undef, 'readlink $full_target_name = undef';
 note "errno = $!";
 
 is do { $_ = $full_target_name; readlink }, undef, 'readlink = undef';
+note "errno = $!";
+
+is readlink($dir), undef, 'readlink $dir = undef';
 note "errno = $!";
 
 is readlink $dir, undef, 'readlink $dir = undef';
