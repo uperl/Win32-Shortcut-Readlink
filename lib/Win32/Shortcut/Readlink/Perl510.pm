@@ -10,7 +10,7 @@ use constant _is_windows => _is_cygwin || _is_mswin32;
 
 sub _real_readlink (_);
 # TODO: only warn in 5.14 or earlier if warnings on in caller
-*_real_readlink = eval qq{ use 5.16.0; 1 } ? \&CORE::readlink : sub (_) { CORE::readlink($_[0]) };
+*_real_readlink = eval { require 5.016000 } ? \&CORE::readlink : sub (_) { CORE::readlink($_[0]) };
 
 sub readlink (_)
 {
