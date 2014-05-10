@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - include partial support for Perl 5.8
 
 0.01      2014-05-08 17:18:18 -0400
   - initial version
