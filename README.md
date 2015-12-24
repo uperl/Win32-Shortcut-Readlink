@@ -1,4 +1,4 @@
-# Win32::Shortcut::Readlink
+# Win32::Shortcut::Readlink [![Build Status](https://secure.travis-ci.org/plicease/Win32-Shortcut-Readlink.png)](http://travis-ci.org/plicease/Win32-Shortcut-Readlink)
 
 Make readlink work with shortcuts
 
