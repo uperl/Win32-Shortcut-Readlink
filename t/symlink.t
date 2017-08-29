@@ -1,7 +1,6 @@
-use strict;
-use warnings;
-use if $^O eq 'MSWin32', 'Test::More', skip_all => 'tests skipped on MSWin32';
-use Test::More;
+use lib 't/lib';
+use Test2::Require::Unix;
+use Test2::V0 -no_srand => 1;
 use Win32::Shortcut::Readlink;
 use File::Temp qw( tempdir );
 use File::Spec;

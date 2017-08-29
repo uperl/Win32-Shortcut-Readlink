@@ -1,8 +1,7 @@
-use strict;
-use warnings;
-use if $^O eq 'MSWin32', 'Test::More', skip_all => 'tests skipped on MSWin32';
-use if eval { require 5.008000 } && !eval {require 5.010000 }, 'Test::More', skip_all => 'test does not work on Perl 5.8';
-use Test::More tests => 4;
+use lib 't/lib';
+use Test2::Require::Not58;
+use Test2::Require::Unix;
+use Test2::V0 -no_srand => 1;
 use Win32::Shortcut::Readlink;
 use File::Temp qw( tempdir );
 use File::Spec;
@@ -32,3 +31,4 @@ note "errno = $!";
 is readlink $dir, undef, 'readlink $dir = undef';
 note "errno = $!";
 
+done_testing;
