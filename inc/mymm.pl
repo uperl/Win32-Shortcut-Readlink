@@ -8,6 +8,9 @@ use File::Copy qw( copy );
 sub myWriteMakefile
 {
   my(%args) = @_;
+
+  my @xs = qw( Readlink.xs resolve.cpp typemap );
+  unlink $_ for @xs;
   
   if($^O =~ /^(cygwin|MSWin32|msys)$/)
   {
@@ -15,11 +18,10 @@ sub myWriteMakefile
     $args{LIBS}   = [ '-L/usr/lib/w32api -lole32 -luuid' ] if $^O eq 'cygwin';
     $args{OBJECT} = [ 'Readlink$(OBJ_EXT)', 'resolve$(OBJ_EXT)' ];
 
-    foreach my $name (qw( Readlink.xs resolve.cpp typemap ))
+    foreach my $name (@xs)
     {
       my $from = "xs/$name";
       my $to   = "$name";
-      unlink $to if -f $to;
       copy($from, $to) || die "unable to copy $from to $to $!";
     }
   }
