@@ -11,7 +11,7 @@ sub myWriteMakefile
 
   my @xs = qw( Readlink.xs resolve.cpp typemap );
   unlink $_ for @xs;
-  
+
   if($^O =~ /^(cygwin|MSWin32|msys)$/)
   {
     $args{INC}    = '-Ixs';
