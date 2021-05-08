@@ -1,12 +1,14 @@
-# Win32::Shortcut::Readlink [![Build Status](https://secure.travis-ci.org/plicease/Win32-Shortcut-Readlink.png)](http://travis-ci.org/plicease/Win32-Shortcut-Readlink)
+# Win32::Shortcut::Readlink ![linux](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/windows/badge.svg) ![cygwin](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/cygwin/badge.svg) ![msys2-mingw](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/msys2-mingw/badge.svg)
 
 Make readlink work with shortcuts
 
 # SYNOPSIS
 
-    use Win32::Shortcut::Readlink;
-    
-    my $target = readlink "c:\\users\\foo\\Desktop\\Application.lnk";
+```perl
+use Win32::Shortcut::Readlink;
+
+my $target = readlink "c:\\users\\foo\\Desktop\\Application.lnk";
+```
 
 # DESCRIPTION
 
@@ -24,8 +26,10 @@ more traditional behavior.
 
 ## readlink
 
-    my $target = readlink EXPR
-    my $target = readlink
+```perl
+my $target = readlink EXPR
+my $target = readlink
+```
 
 Returns the value of a symbolic link or the target of the shortcut on Windows,
 if either symbolic links are implemented or if shortcuts are.  If not, raises an 
