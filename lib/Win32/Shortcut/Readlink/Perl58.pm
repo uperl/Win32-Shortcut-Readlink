@@ -1,5 +1,27 @@
-package
-  Win32::Shortcut::Readlink;
+package Win32::Shortcut::Readlink::Perl58;
+
+# ABSTRACT: Make readlink work with shortcuts
+# VERSION
+
+=head1 SYNOPSIS
+
+ % perldoc Win32::Shortcut::Readlink
+
+=head1 DESCRIPTION
+
+This is a private class used by L<Win32::Shortcut::Readlink>.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Win32::Shortcut::Readlink>
+
+=back
+
+=cut
+
+package Win32::Shortcut::Readlink;
 
 use strict;
 use warnings;
@@ -20,7 +42,7 @@ sub readlink (;$)
   }
 
   my $arg = @_ > 0 ? $_[0] : $_;
-  
+
   if(defined $arg && $arg =~ /\.lnk$/ && -r $arg)
   {
     my $target = _win32_resolve(_is_cygwin ? Cygwin::posix_to_win_path($arg) : $arg);
@@ -52,7 +74,7 @@ sub readlink (;$)
   {
     $! = 2; # No such file or directory
   }
-  
+
   return;
 }
 

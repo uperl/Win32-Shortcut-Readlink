@@ -32,8 +32,8 @@ my $target = readlink
 ```
 
 Returns the value of a symbolic link or the target of the shortcut on Windows,
-if either symbolic links are implemented or if shortcuts are.  If not, raises an 
-exception.  If there is a system error, returns the undefined value and sets 
+if either symbolic links are implemented or if shortcuts are.  If not, raises an
+exception.  If there is a system error, returns the undefined value and sets
 `$!` (errno). If `EXPR` is omitted, uses `$_`.
 
 # CAVEATS
