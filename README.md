@@ -1,4 +1,4 @@
-# Win32::Shortcut::Readlink ![linux](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/windows/badge.svg) ![msys2-mingw](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/msys2-mingw/badge.svg)
+# Win32::Shortcut::Readlink ![linux](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/windows/badge.svg)
 
 Make readlink work with shortcuts
 
