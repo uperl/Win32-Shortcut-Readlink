@@ -1,2 +1,4 @@
 /Win32-Shortcut-Readlink-*
 /.build
+*.old
+*.orig
