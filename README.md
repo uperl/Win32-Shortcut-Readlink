@@ -1,4 +1,4 @@
-# Win32::Shortcut::Readlink ![linux](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/windows/badge.svg) ![cygwin](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/cygwin/badge.svg) ![msys2-mingw](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/msys2-mingw/badge.svg)
+# Win32::Shortcut::Readlink ![linux](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/windows/badge.svg) ![msys2-mingw](https://github.com/uperl/Win32-Shortcut-Readlink/workflows/msys2-mingw/badge.svg)
 
 Make readlink work with shortcuts
 
@@ -63,7 +63,7 @@ Graham Ollis <plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Graham Ollis.
+This software is copyright (c) 2014-2024 by Graham Ollis.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
